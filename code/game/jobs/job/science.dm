@@ -30,7 +30,15 @@
 	ideal_character_age = 50
 
 	outfit_type = /decl/hierarchy/outfit/job/science/rd
-	alt_titles = list("Research Supervisor","Expedition Director")
+	job_description = "The Research Director manages and maintains the Research department. They are required to ensure the safety of the entire crew, \
+						at least with regards to anything occuring in the Research department, and to inform the crew of any disruptions that \
+						might originate from Research. The Research Director often has at least passing knowledge of most of the Research department, but \
+						are encouraged to allow their staff to perform their own duties."
+	alt_titles = list("Research Supervisor" = /datum/alt_title/research_supervisor)
+
+// Research Director Alt Titles
+/datum/alt_title/research_supervisor
+	title = "Research Supervisor"
 
 //////////////////////////////////
 //			Scientist
@@ -55,6 +63,22 @@
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
 	alt_titles = list("Xenoarchaeologist", "Anomalist", "Phoron Researcher", "Circuit Designer", "Research Field Technician", "Lab Assistant", "Junior Scientist")
 
+// Scientist Alt Titles
+/datum/alt_title/xenoarch
+	title = "Xenoarchaeologist"
+	title_blurb = "A Xenoarchaeologist enters digsites in search of artifacts of alien origin. These digsites are frequently in vacuum or other inhospitable \
+					locations, and as such a Xenoarchaeologist should be prepared to handle hostile evironmental conditions."
+
+/datum/alt_title/anomalist
+	title = "Anomalist"
+	title_blurb = "An Anomalist is a Scientist whose expertise is analyzing alien artifacts. They are familar with the most common methods of testing artifact \
+					function. They work closely with Xenoarchaeologists, or Miners, if either role is present."
+
+/datum/alt_title/phoron_research
+	title = "Phoron Researcher"
+	title_blurb = "A Phoron Researcher is a specialist in the practical applications of phoron, and has knowledge of its practical uses and dangers. \
+					Many Phoron Researchers are interested in the combustability and explosive properties of gaseous phoron, as well as the specific hazards \
+					of working with the substance in that state."
 
 //////////////////////////////////
 //			Xenobiologist

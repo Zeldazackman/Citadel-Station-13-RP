@@ -1,8 +1,12 @@
+//////////////////////////////////
+//		Head of Security
+//////////////////////////////////
 /datum/job/hos
 	title = "Head of Security"
 	flag = HOS
-	head_position = 1
-	department = "Security"
+	departments_managed = list(DEPARTMENT_SECURITY)
+	departments = list(DEPARTMENT_SECURITY, DEPARTMENT_COMMAND)
+	sorting_order = 2
 	department_flag = ENGSEC
 	disallow_jobhop = TRUE
 	faction = "Station"
@@ -27,15 +31,19 @@
 	outfit_type = /decl/hierarchy/outfit/job/security/hos
 	alt_titles = list("Security Commander", "Chief of Security","Defense Director")
 
+//////////////////////////////////
+//			Warden
+//////////////////////////////////
 /datum/job/warden
 	title = "Warden"
 	flag = WARDEN
-	department = "Security"
+	departments = list(DEPARTMENT_SECURITY)
+	sorting_order = 1
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the Head of Security"
 	selection_color = "#601C1C"
 	idtype = /obj/item/card/id/security/warden
 	economic_modifier = 5
@@ -45,6 +53,9 @@
 	outfit_type = /decl/hierarchy/outfit/job/security/warden
 	alt_titles = list("Gaoler", "Senior Constable")
 
+//////////////////////////////////
+//			Detective
+//////////////////////////////////
 /datum/job/detective
 	title = "Detective"
 	flag = DETECTIVE
@@ -53,17 +64,18 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the head of security"
+	supervisors = "the Head of Security"
 	selection_color = "#601C1C"
 	idtype = /obj/item/card/id/security/detective
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_eva, access_external_airlocks, access_brig) //Vorestation edit - access_brig
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_eva, access_external_airlocks)
 	economic_modifier = 5
 	minimal_player_age = 3
+
 	outfit_type = /decl/hierarchy/outfit/job/security/detective
-	alt_titles = list("Forensic Technician" = /decl/hierarchy/outfit/job/security/detective/forensic, "Criminal Investigator")
 	job_description = "A Detective works to help Security find criminals who have not properly been identified, through interviews and forensic work. \
 						For crimes only witnessed after the fact, or those with no survivors, they attempt to piece together what they can from pure evidence."
+	alt_titles = list("Forensic Technician" = /datum/alt_title/forensic_tech)
 
 // Detective Alt Titles
 /datum/alt_title/forensic_tech
@@ -89,6 +101,7 @@
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks)
 	minimal_player_age = 3
+
 	outfit_type = /decl/hierarchy/outfit/job/security/officer
 	alt_titles = list("Junior Officer", "Constable", "Security Cadet")
 	job_description = "A Security Officer is concerned with maintaining the safety and security of the station as a whole, dealing with external threats and \

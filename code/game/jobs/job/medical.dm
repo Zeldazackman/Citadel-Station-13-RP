@@ -1,8 +1,12 @@
+//////////////////////////////////
+//		Chief Medical Officer
+//////////////////////////////////
 /datum/job/cmo
 	title = "Chief Medical Officer"
 	flag = CMO
-	head_position = 1
-	department = "Medical"
+	departments_managed = list(DEPARTMENT_MEDICAL)
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_COMMAND)
+	sorting_order = 2
 	department_flag = MEDSCI
 	disallow_jobhop = TRUE
 	faction = "Station"
@@ -37,8 +41,8 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 5
-	spawn_positions = 5
-	supervisors = "the chief medical officer"
+	spawn_positions = 3
+	supervisors = "the Chief Medical Officer"
 	selection_color = "#013D3B"
 	idtype = /obj/item/card/id/medical/doctor
 	economic_modifier = 7
@@ -55,6 +59,33 @@
 		"Virologist" = /decl/hierarchy/outfit/job/medical/doctor/virologist,
 		"Medical Resident",
 		"Medical Intern")
+
+//Medical Doctor Alt Titles
+/datum/alt_title/surgeon
+	title = "Surgeon"
+	title_blurb = "A Surgeon specializes in providing surgical aid to injured patients, up to and including amputation and limb reattachement. They are expected \
+					to know the ins and outs of anesthesia and surgery."
+	title_outfit = /decl/hierarchy/outfit/job/medical/doctor/surgeon
+
+/datum/alt_title/emergency_physician
+	title = "Emergency Physician"
+	title_blurb = "An Emergency Physician is a Medical professional trained for stabilizing and treating severely injured and/or dying patients. \
+					They are generally the first response for any such individual brought to the Medbay, and can sometimes be expected to help their patients \
+					make a full recovery."
+	title_outfit = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician
+
+/datum/alt_title/nurse
+	title = "Nurse"
+	title_blurb = "A Nurse acts as a general purpose Doctor's Aide, providing basic care to non-critical patients, and stabilizing critical patients during \
+					busy periods. They frequently watch the suit sensors console, to help manage the time of other Doctors. In rare occasions, a Nurse can be \
+					called upon to revive deceased crew members."
+	title_outfit = /decl/hierarchy/outfit/job/medical/doctor/nurse
+
+/datum/alt_title/virologist
+	title = "Virologist"
+	title_blurb = "A Virologist cures active diseases in the crew, and prepares antibodies for possible infections. They also have the skills \
+					to produce the various types of virus foods or mutagens."
+	title_outfit = /decl/hierarchy/outfit/job/medical/doctor/virologist
 
 //Chemist is a medical job damnit	//YEAH FUCK YOU SCIENCE	-Pete	//Guys, behave -Erro
 //////////////////////////////////
@@ -133,6 +164,13 @@
 	"Therapist",
 	"Counselor")
 
+//Psychiatrist Alt Titles
+/datum/alt_title/psychologist
+	title = "Psychologist"
+	title_blurb =  "A Psychologist provides mental health services to crew members in need, focusing more on therapy than medication. They may also be \
+					called upon to determine whatever ails the mentally unwell, frequently under Security supervision."
+	title_outfit = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist
+
 //////////////////////////////////
 //			Paramedic
 //////////////////////////////////
@@ -151,4 +189,13 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks)
 	outfit_type = /decl/hierarchy/outfit/job/medical/paramedic
-	alt_titles = list("Emergency Medical Technician" = /decl/hierarchy/outfit/job/medical/paramedic/emt)
+	job_description = "A Paramedic is primarily concerned with the recovery of patients who are unable to make it to the Medical Department on their own. \
+						They may also be called upon to keep patients stable when Medical is busy or understaffed."
+	alt_titles = list("Emergency Medical Technician" = /datum/alt_title/emt)
+
+// Paramedic Alt Titles
+/datum/alt_title/emt
+	title = "Emergency Medical Technician"
+	title_blurb = "An Emergency Medical Technician is primarily concerned with the recovery of patients who are unable to make it to the Medical Department on their \
+					own. They are capable of keeping a patient stabilized until they reach the hands of someone with more training."
+	title_outfit = /decl/hierarchy/outfit/job/medical/paramedic/emt

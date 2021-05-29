@@ -35,6 +35,11 @@
 	rank = "Pathfinder"
 	job_access_type = /datum/job/pathfinder
 
+/datum/department/planetside
+	name = DEPARTMENT_PLANET
+	color = "#bab421"
+	sorting_order = 2 // Same as cargo in importance.
+
 /datum/job/pathfinder
 	title = "Pathfinder"
 	flag = PATHFINDER
