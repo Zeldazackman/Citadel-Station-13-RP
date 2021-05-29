@@ -218,7 +218,7 @@ var/global/list/PDA_Manifest = list()
 			heads[++heads.len] = list("name" = name, "rank" = rank, "active" = isactive)
 			department = 1
 			depthead = 1
-			if(rank=="Site Manager" && heads.len != 1)
+			if(rank=="Facility Director" && heads.len != 1)
 				heads.Swap(1,heads.len)
 
 		if(SSjob.IsJobInDepartment(real_rank, DEPARTMENT_SECURITY))
