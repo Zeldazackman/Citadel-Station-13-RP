@@ -17,7 +17,7 @@
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 
 	outfit_type = /decl/hierarchy/outfit/job/assistant
-	alt_titles = list("Visitor" = /decl/hierarchy/outfit/job/assistant/visitor, "Server" = /decl/hierarchy/outfit/job/service/server, "Assistant", "Entertainer", "Morale Officer")
+	alt_titles = list("Visitor" = /datum/alt_title/visitor, "Server" = /datum/alt_title/server, "Entertainer" = /datum/alt_title/entertainer, "Morale Officer" = /datum/alt_title/morale_officer)
 
 /datum/job/assistant/get_access()
 	if(config_legacy.assistant_maint)
@@ -38,3 +38,17 @@
 
 /datum/job/assistant/get_access()
 	return list()
+
+/datum/alt_title/visitor
+	title = "Visitor"
+	title_outfit = /decl/hierarchy/outfit/job/assistant/visitor
+
+/datum/alt_title/server
+	title = "Server"
+	title_outfit = /decl/hierarchy/outfit/job/service/server
+
+/datum/alt_title/entertainer
+	title = "Entertainer"
+
+/datum/alt_title/morale_officer
+	title = "Morale Officer"

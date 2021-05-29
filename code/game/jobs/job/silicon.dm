@@ -23,10 +23,13 @@
 	job_description = "The AI oversees the operation of the station and its crew, but has no real authority over them. \
 						The AI is required to follow its Laws, and Lawbound Synthetics that are linked to it are expected to follow \
 						the AI's commands, and their own Laws."
+	disallow_jobhop = TRUE
+	pto_type = PTO_CIVILIAN
 
 // AI procs
 /datum/job/ai/equip(var/mob/living/carbon/human/H)
-	if(!H)	return 0
+	if(!H)
+		return 0
 	return 1
 
 /datum/job/ai/is_position_available()
@@ -60,6 +63,7 @@
 	job_description = "A Cyborg is a mobile station synthetic, piloted by a cybernetically preserved brain. It is considered a person, but is still required \
 						to follow its Laws."
 	alt_titles = list("Robot" = /datum/alt_title/robot, "Drone" = /datum/alt_title/drone)
+	pto_type = PTO_CYBORG
 
 // Cyborg Alt Titles
 /datum/alt_title/robot
