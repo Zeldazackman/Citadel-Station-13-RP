@@ -7,8 +7,9 @@
 	departments_managed = list(DEPARTMENT_RESEARCH)
 	departments = list(DEPARTMENT_RESEARCH, DEPARTMENT_COMMAND)
 	sorting_order = 2
-	department_flag = MEDSCI
 	disallow_jobhop = TRUE
+	pto_type = PTO_SCIENCE
+	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -20,11 +21,12 @@
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
-			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_eva, access_network)
+			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue,
 			            access_tox_storage, access_teleporter, access_sec_doors,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
-			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_eva, access_network)
+			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network)
+
 	minimum_character_age = 25
 	minimal_player_age = 14
 	ideal_character_age = 50
@@ -61,7 +63,14 @@
 	minimal_player_age = 14
 
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
-	alt_titles = list("Xenoarchaeologist", "Anomalist", "Phoron Researcher", "Circuit Designer", "Research Field Technician", "Lab Assistant", "Junior Scientist")
+	pto_type = PTO_SCIENCE
+	job_description = "A Scientist is a generalist working in the Research department, with general knowledge of the scientific process, as well as \
+						the principles and requirements of Research and Development. They may also formulate experiments of their own devising, if \
+						they find an appropriate topic."
+	alt_titles = list("Xenoarchaeologist" = /datum/alt_title/xenoarch, "Anomalist" = /datum/alt_title/anomalist, \
+						"Phoron Researcher" = /datum/alt_title/phoron_research, "Lab Assistant" = /datum/alt_title/scientist/assistant,
+						"Junior Scientist" = /datum/alt_title/scientist/junior, "Circuit Designer" = /datum/alt_title/scientist/circuit,
+						"Research Field Technician" = /datum/alt_title/scientist/fieldtech)
 
 // Scientist Alt Titles
 /datum/alt_title/xenoarch
@@ -80,6 +89,18 @@
 					Many Phoron Researchers are interested in the combustability and explosive properties of gaseous phoron, as well as the specific hazards \
 					of working with the substance in that state."
 
+/datum/alt_title/scientist/junior
+	title = "Junior Scientist"
+
+/datum/alt_title/scientist/assistant
+	title = "Lab Assistant"
+
+/datum/alt_title/scientist/circuit
+	title = "Circuit Designer"
+
+/datum/alt_title/scientist/fieldtech
+	title = "Research Field Technician"
+
 //////////////////////////////////
 //			Xenobiologist
 //////////////////////////////////
@@ -94,6 +115,7 @@
 	supervisors = "the Research Director"
 	selection_color = "#633D63"
 	idtype = /obj/item/card/id/science/xenobiologist
+	pto_type = PTO_SCIENCE
 	economic_modifier = 7
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics, access_tox)
 	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage,access_tox)
@@ -127,6 +149,7 @@ VR edit end*/
 	supervisors = "the Research Director"
 	selection_color = "#633D63"
 	economic_modifier = 5
+	pto_type = PTO_SCIENCE
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_tox) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research, access_tox) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	minimal_player_age = 7
