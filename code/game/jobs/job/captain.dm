@@ -37,6 +37,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		"Site Manager" = /datum/alt_title/captain/site,
 		"Director of Operations" = /datum/alt_title/captain/director,
 		"Captain" = /datum/alt_title/captain/captain
+	)
 
 /*
 /datum/job/captain/equip(var/mob/living/carbon/human/H)
@@ -47,7 +48,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/captain/get_access()
 	return get_all_station_access().Copy()
-
 
 // Captain Alt Titles
 /datum/alt_title/overseer
@@ -147,7 +147,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		"Command Liaison" = /datum/alt_title/command_liaison,
 		"Bridge Secretary" = /datum/alt_title/bridge_secretary,
 		"Command Assistant" = /datum/alt_title/command_assistant,
-		"Command Intern" = /datum/alt_title/command_intern
+		"Command Intern" = /datum/alt_title/command_intern,
 		"Helmsman" = /datum/alt_title/commsec/helmsman,
 		"Bridge Officer" = /datum/alt_title/commsec/officer
 	)
