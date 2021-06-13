@@ -8,6 +8,7 @@
 	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_COMMAND)
 	sorting_order = 2
 	department_flag = MEDSCI
+	pto_type = PTO_MEDICAL
 	disallow_jobhop = TRUE
 	faction = "Station"
 	total_positions = 1
@@ -29,7 +30,24 @@
 	ideal_character_age = 50
 
 	outfit_type = /decl/hierarchy/outfit/job/medical/cmo
-	alt_titles = list ("Chief Physician","Director of Medicine","Chief Surgeon")
+	job_description = "The CMO manages the Medical department and is a position requiring experience and skill; their goal is to ensure that their \
+						staff keep the station's crew healthy and whole. They are primarily interested in making sure that patients are safely found and \
+						transported to Medical for treatment. They are expected to keep the crew informed about threats to their health and safety, and \
+						about the importance of Suit Sensors."
+	alt_titles = list (
+		"Chief Physician" = /datum/alt_title/cmo/physician,
+		"Director of Medicine" = /datum/alt_title/cmo/director,
+		"Chief Surgeon" = /datum/alt_title/cmo/surgeon
+	)
+
+/datum/alt_title/cmo/physician
+	title = "Chief Physician"
+
+/datum/alt_title/cmo/director
+	title = "Director of Medicine"
+
+/datum/alt_title/cmo/surgeon
+	title = "Chief Surgeon"
 
 //////////////////////////////////
 //		Medical Doctor
@@ -44,6 +62,7 @@
 	spawn_positions = 3
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#013D3B"
+	pto_type = PTO_MEDICAL
 	idtype = /obj/item/card/id/medical/doctor
 	economic_modifier = 7
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_eva)
@@ -53,12 +72,14 @@
 						familiar with basic first aid, and a number of accompanying medications, and can generally save, if not cure, a majority of the \
 						patients they encounter."
 	alt_titles = list(
-		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
-		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
-		"Nurse" = /decl/hierarchy/outfit/job/medical/doctor/nurse,
-		"Virologist" = /decl/hierarchy/outfit/job/medical/doctor/virologist,
-		"Medical Resident",
-		"Medical Intern")
+		"Surgeon" = /datum/alt_title/surgeon,
+		"Emergency Physician" = /datum/alt_title/emergency_physician,
+		"Nurse" = /datum/alt_title/nurse,
+		"Virologist" = /datum/alt_title/virologist,
+		"Medical Resident" = /datum/alt_title/doctor/resident,
+		"Medical Intern" = /datum/alt_title/doctor/intern,
+		"Orderly" = /datum/alt_title/orderly
+		)
 
 //Medical Doctor Alt Titles
 /datum/alt_title/surgeon
@@ -66,6 +87,12 @@
 	title_blurb = "A Surgeon specializes in providing surgical aid to injured patients, up to and including amputation and limb reattachement. They are expected \
 					to know the ins and outs of anesthesia and surgery."
 	title_outfit = /decl/hierarchy/outfit/job/medical/doctor/surgeon
+
+/datum/alt_title/orderly
+	title = "Orderly"
+	title_blurb = "An Orderly acts as Medbay's general helping hand, assisting any doctor that might need some form of help, as well as handling manual \
+					and dirty labor around the department."
+	title_outfit = /decl/hierarchy/outfit/job/medical/doctor/nurse
 
 /datum/alt_title/emergency_physician
 	title = "Emergency Physician"
@@ -87,6 +114,12 @@
 					to produce the various types of virus foods or mutagens."
 	title_outfit = /decl/hierarchy/outfit/job/medical/doctor/virologist
 
+/datum/alt_title/doctor/resident
+	title = "Medical Resident"
+
+/datum/alt_title/doctor/intern
+	title = "Medical Intern"
+
 //Chemist is a medical job damnit	//YEAH FUCK YOU SCIENCE	-Pete	//Guys, behave -Erro
 //////////////////////////////////
 //			Chemist
@@ -101,6 +134,7 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#013D3B"
+	pto_type = PTO_MEDICAL
 	idtype = /obj/item/card/id/medical/chemist
 	economic_modifier = 5
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
@@ -131,6 +165,7 @@
 	spawn_positions = 0
 	supervisors = "the Chief Medical Officer and Research Director"
 	selection_color = "#013D3B"
+	pto_type = PTO_MEDICAL
 	idtype = /obj/item/card/id/medical/geneticist
 	economic_modifier = 7
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_research)
@@ -155,14 +190,20 @@
 	economic_modifier = 5
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#013D3B"
+	pto_type = PTO_MEDICAL
 	idtype = /obj/item/card/id/medical/psychiatrist
 	access = list(access_medical, access_medical_equip, access_morgue, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist, access_chemistry)
 	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
+	job_description = "A Psychiatrist provides mental health services to crew members in need. They may also be called upon to determine whatever \
+					ails the mentally unwell, frequently under Security supervision. They understand the effects of various psychoactive drugs."
 	alt_titles = list(
-	"Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist,
-	"Therapist",
-	"Counselor")
+		"Psychologist" = /datum/alt_title/psychologist,
+		"Therapist" = /datum/alt_title/psychiatrist/therapist,
+		)
+
+/datum/alt_title/psychiatrist/therapist
+	title = "Therapist"
 
 //Psychiatrist Alt Titles
 /datum/alt_title/psychologist
@@ -184,6 +225,7 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#013D3B"
+	pto_type = PTO_MEDICAL
 	idtype = /obj/item/card/id/medical/paramedic
 	economic_modifier = 4
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist)

@@ -14,17 +14,32 @@
 	minimal_access = list(access_chapel_office, access_crematorium)
 
 	outfit_type = /decl/hierarchy/outfit/job/chaplain
-	alt_titles = list("Religious Affairs Advisor", "Paracausal Scholar", "Exorcist")
+	job_description = "The Chaplain ministers to the spiritual needs of the crew."
+	alt_titles = list("Counselor" = /datum/alt_title/counselor, "Religious Affairs Advisor" = /datum/alt_title/chaplain/advisor,
+	"Paracausal Scholar" = /datum/alt_title/chaplain/scholar, "Exorcist" = /datum/alt_title/chaplain/scholar)
 
-/datum/job/chaplain/equip(mob/living/carbon/human/H, src)
-	. = ..()
-	if(H.mind)
-		H.mind.isholy = TRUE
+// Chaplain Alt Titles
+/datum/alt_title/counselor
+	title = "Counselor"
+	title_blurb = "The Counselor attends to the emotional needs of the crew, without a specific medicinal or spiritual focus."
+
+/datum/alt_title/chaplain/advisor
+	title = "Religious Affairs Advisor"
+
+/datum/alt_title/chaplain/scholar
+	title = "Paracausal Scholar"
+
+/datum/alt_title/chaplain/exorcist
+	title = "Exorcist"
 
 /datum/job/chaplain/equip(var/mob/living/carbon/human/H, var/alt_title, var/ask_questions = TRUE)
 	. = ..()
 	if(!.)
 		return
+
+	if(H.mind)
+		H.mind.isholy = TRUE
+
 	if(!ask_questions)
 		return
 
